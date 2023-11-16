@@ -13,7 +13,7 @@ import (
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Println("Usage: fmt <file-to-modify.go>")
+		fmt.Println("Usage: gofmtc <file-to-modify.go>")
 		os.Exit(1)
 	}
 
