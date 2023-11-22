@@ -120,7 +120,7 @@ func TestErrorsNewFormatting(t *testing.T) {
 	code := wrapCode(
 		`fmt.Println(fmt.Errorf("Hello world:%w", errors.New("fF")))`)
 	expected := wrapCode(
-		`fmt.Println(fmt.Errorf("Hello world:%w", errors.New("fF")))`)
+		`fmt.Println(fmt.Errorf("Hello world:%w", errors.New("FF")))`)
 
 	formated := callRule(code, rules.ErrorsNewCallExpr)
 	r.Equal(expected, formated)
@@ -130,7 +130,7 @@ func TestErrorsNewFormatting(t *testing.T) {
 			"H"+
 				"ello world:"+"%w",
 			errors.New(
-				"fF"),
+				"F"+"F"),
 		),
 	)`)
 	expected = wrapCode(`fmt.Println(
@@ -138,7 +138,7 @@ func TestErrorsNewFormatting(t *testing.T) {
 			"H"+
 				"ello world:"+"%w",
 			errors.New(
-				"fF"),
+				"f"+"F"),
 		),
 	)`)
 
